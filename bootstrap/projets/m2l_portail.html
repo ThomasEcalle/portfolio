@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thomas Ecalle</title>
+		<meta charset="utf-8">
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+			<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-targets="#navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a href="../index.html" class="navbar-brand">Thomas Ecalle</a>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+					<a href="../contactez-moi.php" class="btn btn-info navbar-btn navbar-right">Contactez-moi</a>
+						<ul class="nav navbar-nav">
+							<li><a href="../index.html">Accueil</a></li>
+							<li><a href="../cv.html">Mon CV</a></li>
+							<li><a target="_blank" href="../VeilleNFC.pdf">Veille NFC</a></li>
+							<li><a href="../projets.html" class="active">Mes projets</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			
+			<div class="jumbotron">
+				<div class="container text-center">
+					<h1>M2L : Le portail utilisateur</h1>
+					<p>Applcation Web codée en python</p>
+					<a href="#contexte" class="btn btn-primary btn-lg active" role="button">Contexte</a>
+					<a href="#solution_proposee" class="btn btn-primary btn-lg active" role="button">Solution proposée</a>
+					<a href="#structure" class="btn btn-primary btn-lg active" role="button">Structure de l'application</a>
+					<a href="#conclusion" class="btn btn-primary btn-lg active" role="button">Conclusion</a>
+					<a href="#competences_validees" class="btn btn-primary btn-lg active" role="button">Compétences validées</a>
+				</div>
+			</div>
+			
+			<div class="container">
+				<section>
+					<div class="page-header">
+						<h2 id="contexte">Le contexte</h2>
+					</div>
+					<p> La M2L (Maison des Ligues de Lauraine) est une association regroupant l'ensemble des ligues sportives de Lauraine. Monsieur Lefut est l'administrateur de l'actuelle application web de la M2L, application dont l'objectif est de pouvoir recenser l'ensemble des informations sur les membres de la M2L.</p>
+					
+					<h4>Problématique</h4>
+					<p>
+						Cette application rudimentaire n’est pas accessible aux utilisateurs, et est rédhibitoire sur le plan de la sécurité.
+
+						De plus, il perd depuis des années un temps précieux à changer les adresses e-mail lui-même à la demande des utilisateurs. Son grand rêve serait qu’ils puissent changer eux-mêmes leur adresse e-mail et choisir leur mot de passe. Monsieur Lefut a décidé de faire évoluer cette application en recourant à une équipe de prestataires.
+					</p>
+					<h4>Objectifs</h4>
+					<p>
+						<ul>
+							<li>Mettre en place une page de connexion utilisateurs qui pourront alors s'inscrire et changer eux-même leurs informations.</li>
+							<li>L'administrateur doit pouvoir modifier les informations de n'importe quel utilisateur.</li>
+						</ul>
+					</p>
+					<h4>Contraintes éventuelles</h4>
+					<p>Application exclusivement codée en langage Python</p>
+					<div class="page-header">
+						<h2 id="solution_proposee">La solution proposée</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h4>Côté utilisateur</h4>
+							<p>
+							 Afin de répondre aux attentes du client, nous avons crée une application Web permettant à un utilisateur de :
+								<ul>
+									<li>S'inscrire sur le portail et d'y modifier ses informations</li>
+									<li>Faire une demande de regeneration de mot de passe automatique en cas d'oublis de celui-ci</li>
+									<li>Mise en place d'une documentation utilisateur accessible sur l'application</li>
+								</ul>
+							</p>
+						</div>
+						<div class="col-md-4">
+							<h4>Côté administrateur</h4>
+							<p>En tant qu'administrateur, monsieur Lefut aura de nombreuses possibilités :
+								<ul>
+									<li>Possibilité d'inscrire un nouvel utilisateur, un mot de passe aléatoire est alors créé et envoyer directement par Mail à l'utilisateur</li>
+									<li>Droit de modifications et suppressions sur n'importe quel utilisateur</li>
+									<li>Possibilité de nommer de nouveaux administrateurs</li>
+								</ul>
+							</p>
+						</div>
+						<div class="col-md-4">
+							<h4>Sécurité</h4>
+							<p>L'une des exigence principales du projet était l'augmentation de la sécurité de l'application, un certains nombres de mesures ont été mises en place :
+								<ul>
+									<li>Mise en place de connexions sécurisée côté serveur et côté utilisateur</li>
+									<li>Protection contre les injections SQL grâce à l'utilisations de REGEX</li>
+									<li>Hashage des mots de passe utilisateurs dans la base de données</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="page-header">
+						<h2 id="structure">Structure de l'application</h2>
+					</div>
+					<h4>Une fonction principale</h4>
+					<p>L'application web tient sur une et une seule page. Pour ce faire, elle est composée de nombreuses fonctions qui s'appelent l'une l'autre.<br>
+					La fonction <strong>test_donnees_formulaire</strong> est la fonction principale du script. Elle est la seule à être lancée au départ puis ce sera son rôle que d'appeler les autres fonctions. Il existe deux types de fonctions:
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<h4>Les fonctions d'affichage</h4>
+							<p>Le mot "print" placé au début du nom de la fonction précise que celle-ci est une fontion d'affichage. Son rôle sera alors d'afficher un certain texte/formulaire en fonction de celle-ci. Un exemple ici avec la fonction <strong>print_inscription</strong>
+							<img src="../images/print_inscription.png" alt="code de la fonction print_inscription" class="img-thumbnail">
+							</p>
+						</div>
+						<div class="col-md-6">
+							<h4>Les fonctions de traitement de données</h4>
+							<p>
+							 Il s'agit des fonctions de traitements de connées dont le rôle est de récuperer les données transmises via les formulaire, de vérifier leur conformité et, le cas échéant, d'afficher les erreurs.
+							Exemple avec la fonction <strong>verification_formulaire_ajout</strong>
+							<img src="../images/verification_formulaire_ajout.png" alt="code de la fonction verification_formulaire_ajout" class="img-thumbnail">
+							</p>
+						</div>
+					</div>
+					<h4>Gestion des erreurs</h4>
+					<p>La conformité des données envoyées par l'utilisateur est garantie par l'utilisation de Regex qui emêchent ce dernier de placer des caractères dangereux (injections sql) dans le formulaire. Exemple de test avec les regex :
+					</p>
+					<img src="../images/verification_formulaire_inscription.png" alt="code de la fonction verification_formulaire_inscription" class="img-thumbnail">
+					<p>Et voici les différets pattern utilisés pour les Regex :</p>
+					<ul>
+						<li>Noms et Prénom : patternNom = "^[a-zA-Z\\'-]+$" </li>
+						<li>Adresse Email : patternMail = "^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$"  </li>
+						<li>Mot de passe : patternMdp = "^[a-zA-Z0-9]{4,}$"</li>
+					</ul>
+				</section>
+				<section>
+					<div class="page-header">
+						<h2 id="conclusion">Conclusion</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h4>Attentes</h4>
+							<p>
+								<ul>
+									<li>Création d'une page de connexion Utilisateur</li>
+									<li>Renforcement de la sécurité</li>
+								</ul>
+							</p>
+						</div>
+						<div class="col-md-6">
+							<h4>Solution proposée</h4>
+							<p>
+								<ul>
+									<li>Page de connexion utilisarteur entièrement sécurisée</li>
+									<li>Mise en place de Regex anti-injections sql</li>
+									<li>Mise en place de fonction d'envoie de Mail automatique fonctionnel (pour les inscriptions, les ajouts et les mots d epass eoubliés)</li>
+									<li>Mise en placa d'une option de mot de passe oublié</li>
+									<li>Possibilité pour l'administrateur de supprimer/modifier/passer administrateur un utilisateur</li>
+									<li>Mots de passe sécurisés dans la base de données (hashage MD5)</li>
+									<li>Mise en place d'une documentation utilisateur accessible en ligne (onglet "Aide")</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="page-header">
+						<h2 id="competences_validees">Compétences validées</h2>
+					</div>
+					<table class="table table-bordered table-condensed">
+						<tr>
+							<th>Intitulés</th>
+							<th>Compétences</th>
+						</tr>
+						<tr>
+							<td>A1.1.1</td>
+							<td>Analyse du cahier des charges d'un service à produire</td>
+						</tr>
+						<tr>
+							<td>A1.1.2</td>
+							<td>Étude de l'impact de l'intégration d'un service sur le système informatique</td>
+						</tr>
+						<tr>
+							<td>A1.1.3</td>
+							<td>Étude des exigences liées à la qualité attendue d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.2.3</td>
+							<td>Évaluation des risques liés à l'utilisation d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.2.4</td>
+							<td>Détermination des tests nécessaires à la validation d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.3.2</td>
+							<td>Définition des éléments nécessaires à la continuité d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.4.1</td>
+							<td>Définition des niveaux d'habilitation associés à un service</td>
+						</tr>
+						<tr>
+							<td>4.1.1</td>
+							<td>Proposition d'une solution applicative</td>
+						</tr>
+						<tr>
+							<td>4.1.2</td>
+							<td>Conception ou adaptation de l'interface utilisateur d'une solution applicative</td>
+						</tr>
+						<tr>
+							<td>A4.1.6</td>
+							<td>Gestion d'environnements de développement et de test</td>
+						</tr>
+						<tr>
+							<td>A4.1.1</td>
+							<td>Rédaction d'une documentation d'utilisation</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+			
+			
+	
+		
+			
+			
+		
+	</body>
+</html>

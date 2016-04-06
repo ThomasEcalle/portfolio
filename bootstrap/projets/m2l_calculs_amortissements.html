@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thomas Ecalle</title>
+		<meta charset="utf-8">
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+			<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-targets="#navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a href="../index.html" class="navbar-brand">Thomas Ecalle</a>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+					<a href="../contactez-moi.php" class="btn btn-info navbar-btn navbar-right">Contactez-moi</a>
+						<ul class="nav navbar-nav">
+							<li><a href="../index.html">Accueil</a></li>
+							<li><a href="../cv.html">Mon CV</a></li>
+							<li><a target="_blank" href="../VeilleNFC.pdf">Veille NFC</a></li>
+							<li><a href="../projets.html" class="active">Mes projets</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			
+			<div class="jumbotron">
+				<div class="container text-center">
+					<h1>M2L :Application comptable de calcul de crédit</h1>
+					<p>Application Java</p>
+					<a href="#contexte" class="btn btn-primary btn-lg active" role="button">Contexte</a>
+					<a href="#solution_proposee" class="btn btn-primary btn-lg active" role="button">Solution proposée</a>
+					<a href="#structure" class="btn btn-primary btn-lg active" role="button">Structure de l'application</a>
+					<a href="#conclusion" class="btn btn-primary btn-lg active" role="button">Conclusion</a>
+					<a href="#competences_validees" class="btn btn-primary btn-lg active" role="button">Compétences validées</a>
+					<a href="javadoc" class="btn btn-default btn-lg active" role="button">Javadoc</button></a>
+					<a href="DocumentationUtilisateur.pdf" target="_blank"class="btn btn-default btn-lg active" role="button">DocumentationUtilisateur</button></a>
+				</div>
+			</div>
+			
+			<div class="container">
+				<section>
+					<div class="page-header">
+						<h2 id="contexte">Le contexte</h2>
+					</div>
+					<p>Les amortissements des crédits sont difficile à choisir car la procédure de calcul est complexe et on se perd vite dans les chiffres.
+					Il a été décidé de mettre au service du département comptable un outil interactif permettant d’y voir clair dans les crédits et de prendre des décisions rapides.</p>
+					
+					<h3>Problématique</h3>
+					<p>
+						Il existe deux modes de remboursement pour les crédits : les crédits à  "amortissements constants" ou bien à "annuités constantes". Pour chacun d’eux, les modalités du crédit sont spécifiées par ces critères :
+					</p>
+					<ul>
+						<li>Le taux</li>
+						<li>La durée</li>
+						<li>Le montant emprunté</li>
+						<li>L'annuité maximale</li>
+					</ul>
+					<p>La connaissance de 3 de ces critères permettent de déduire le 4-ème. 
+					Si par exemple, un utilisateur saisit le taux, la durée et le montant de l'annuité, il est possible de calculer le montant qu’il peut emprunter.</p>
+					<h3>Objectifs</h3>
+					<p>
+						<ul>
+							<li>Afficher le tableau de remboursement de n’importe quel crédit.</li>
+							<li>Calculer un critère en saisissant les trois autres..</li>
+						</ul>
+					</p>
+					<h3>Contraintes éventuelles</h3>
+					<p>Application exclusivement codée en langage Java</p>
+					<div class="page-header">
+						<h2 id="solution_proposee">La solution proposée</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<h3>Affichage tableau</h3>
+							<p>
+							 Afin de répondre aux attentes du client, nous avons crée une application Java permettant à un utilisateur  de :
+								<ul>
+									<li>Voir s'afficher le tableau d'amortissement correspondant aux données renseignées.</li>
+									<li>S'assurer de la conformité de ses données grâce à un système d'erreurs.</li>
+									<li>Pouvoir comparer les 2 modes d'amortissemnts proposés et ainsi faire le bon choix.</li>
+									<li>Capacité d'enregistrer le tableau au format Excell </li>
+								</ul>
+							</p>
+						</div>
+						<div class="col-md-5 col-md-offset-2">
+							<h3>Calculs de crédits</h3>
+							<p>Les fonctions de calculs permettent de :
+								<ul>
+									<li>Calculer une valeur parmis les 4 dès lors que les 3 autres ont été renseignées.</li>
+									<li>Gerer les problèmes éventuls causés par des données illogiques </li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="page-header">
+						<h2 id="structure">Structure de l'application</h2>
+					</div>
+					<h3>4 packages</h3>
+					<p>L'application est architecturée autour de 4 packages qui sont :</p>
+					<div class="row">
+						<div class="col-md-3">
+							<p> Package amortissements</p>
+							<img src="../images/amortissement/package.png" alt="image d'un package java" class="img-thumbnail">
+						</div>
+						<div class="col-md-3">
+							<p> Package exceptions</p>
+							<img src="../images/amortissement/package.png" alt="image d'un package java" class="img-thumbnail">
+						</div>
+						<div class="col-md-3">
+							<p> Package interfaceGraphique</p>
+							<img src="../images/amortissement/package.png" alt="image d'un package java" class="img-thumbnail">
+						</div>
+						<div class="col-md-3">
+							<p> Package test</p>
+							<img src="../images/amortissement/package.png" alt="image d'un package java" class="img-thumbnail">
+						</div>
+					</div>
+					<h3>Amortissement</h3>
+					<div class="row">
+						<div class="col-md-4">
+							<h4>Classe Credit</h4>
+							<p>La classe Crédit est la classe dans laquelle le Crédit va être construit.
+									Le constructeur ne peut être appelé directement, il faut alors passé par des "fabriques".
+									Le rôle d'une fabrique est de, à partir de 3 valeurs parmis les 4 nécessaires, calculer la 4ème puis créer le crédit.
+							</p><p>Voici un exemple avec la fabrique permettant de calculer le montant emprunté :</p>
+							<a href="../images/amortissement/fabrique.png" target="_blank"><img src="../images/amortissement/fabrique.png" alt="image d'une fabrique" class="img-thumbnail"></a>
+						</div>
+						<div class="col-md-4">
+							<h4>Classe Ligne</h4>
+							<p>La classe Ligne permet, à partir d'un crédit donné, de créer les lignes du tableau d'amortissement.</p>
+									<p>Elle possède une fonction <strong>premiereLigne()</strong> permettant de créer la premiere ligne, puis une fonction <strong>ligneSuivante()</strong> 
+									qui va créer à chaque fois la ligne suivant la précédente.
+							</p>
+							<p>Voici la fonction premiereLigne() :</p>
+							<a href="../images/amortissement/premiereLigne.png" target="_blank"><img src="../images/amortissement/premiereLigne.png" alt="image de la fonction" class="img-thumbnail"></a>
+						</div>
+						<div class="col-md-4">
+							<h4>Classe TableauAmortissement</h4>
+							<p>La classe TableauAmortissement va être la clef de voûte de ce package.
+							A partir d'un crédit, la classe va alors créer un tableau, comportant toutes les lignes de ce Crédit. Cahque case du tableau correspondra à une ligne du crédit,
+							Il y aura ainsi autant de cases que d'années nécessaires au remboursement du crédit</p>
+							<p>Voici son constructeur :</p>
+								<a href="../images/amortissement/constructeur_TableauAmortissement.png" target="_blank"><img src="../images/amortissement/constructeur_TableauAmortissement.png" alt="image du constructeur" class="img-thumbnail"></a>
+						</div>
+					</div>
+					<h3>Exceptions</h3>
+					<p>Le package exceptions rassemble toutes les classes nécessaires à la levée d'exception lors de l'éxécution du code.<p>
+					<p>La classe <strong>MonException</strong> est une classe vide qui hérite de la classe java <strong>Exception</strong>. Nous trouvons ensuite 4 classes spécifiques qui héritent elles-même de <strong>MonException</strong> :</p>
+					<ul>
+						<li>ExceptionTaux</li>
+						<li>ExceptionAnnuite</li>
+						<li>ExceptionDuree</li>
+						<li>ExceptionMontant</li>
+					</ul>
+					<p>Chacune de ces exceptions est relevée dans un cas bien précis, de telle sorte que l'utilisateur puisse avoir plus de précision sur la nature de l'erreur !</p>
+					<p>Avoir une classe mère commune à ces 4 exceptions telle que <strong>MonException</strong> permet de ne relever qu'un seul "type" d'erreur à chaque fois, mais qui peut correspondre aux 4 citées ci-dessus.</p>
+					<p>Voici un exemple avec l'exception <strong>ExceptionMontant</strong> :</p>
+					<img src="../images/amortissement/ExceptionMontant.png" alt="image de l'exception" class="img-thumbnail">
+					
+					<h3>InterfaceGraphique</h3>
+					<p>Le package interfaceGraphique est composé de 5classes permettant ainsi de réaliser l'ensemble des opérations nécessaires à l'affichage du tableau.</p>
+					<div class="row">
+						<div class="col-md-4"><strong>Application</strong><p>Permet de lancer la fenêtre de l'application.</p></div>
+						<div class="col-md-4"><strong>BoutonAction</strong><p>Permet de gérer les évènements des boutons de l'application.</p></div>
+						<div class="col-md-4"><strong>ExportExcel</strong><p>Permet la sauvegarde du tableau dans un fichier Excell sur l'ordinateur de l'utilisateur.</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><strong>FenetrePrincipale</strong><p>Permet de dimensionner et construire la fenêtre appelée par <strong>Applcation</strong>.</p></div>
+						<div class="col-md-4"><strong>MessageErreur</strong><p>lLorsqu'une exception est levée, elle demande à cette classe d'afficher un message d'erreur informant l'utilisateur de celle-ci.</p></div>
+					</div>
+					<h3>Test</h3>
+					<p>Le package <strong>test</strong> rassemble l'ensemble des test unitaires éffectués en 3 classes :</p>
+					<ul>
+						<li>TestCredit</li>
+						<li>TestLigne</li>
+						<li>TestTableauAmortissement</li>
+					</ul>
+					<p>Junit a été utilisé afin de tester au mieux les différentes fonctions de l'application.</p>
+					<p>Voici un exemple de test concluant réalisé dans la classe <strong>TestCredit</strong> :</p>
+					<img src="../images/amortissement/testUnitaires.png" alt="image du test" class="img-thumbnail">
+					
+				</section>
+				<section>
+					<div class="page-header">
+						<h2 id="conclusion">Conclusion</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h4>Attentes</h4>
+							<p>
+								<ul>
+									<li>Affichage d'un tableau de remboursement de Crédit </li>
+									<li>Calcul d'un critère en saisissant les trois autres</li>
+								</ul>
+							</p>
+						</div>
+						<div class="col-md-6">
+							<h4>Solution proposée</h4>
+							<p>
+								<ul>
+									<li>Possibilité de choisir entre 2 types de remboursements différents</li>
+									<li>Calculs de la 4ème donnée manquante</li>
+									<li>Système de vérification de la crédibilité et logique des données transmises</li>
+									<li>Possibilité d'enregistrer le tableau affiché dans un fichier Excell</li>
+									<li>Dialogue utilisateur convivial et intuitif</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="page-header">
+						<h2 id="competences_validees">Compétences validées</h2>
+					</div>
+					<table class="table table-bordered table-condensed">
+						<tr>
+							<th>Intitulés</th>
+							<th>Compétences</th>
+						</tr>
+						<tr>
+							<td>A1.1.1</td>
+							<td>Analyse du cahier des charges d'un service à produire</td>
+						</tr>
+						<tr>
+							<td>A1.1.2</td>
+							<td>Étude de l'impact de l'intégration d'un service sur le système informatique</td>
+						</tr>
+						<tr>
+							<td>A1.1.3</td>
+							<td>Étude des exigences liées à la qualité attendue d'un service</td>
+						</tr>
+						
+						<tr>
+							<td>A1.2.3</td>
+							<td>Évaluation des risques liés à l'utilisation d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.2.4</td>
+							<td>Détermination des tests nécessaires à la validation d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.3.2</td>
+							<td>Définition des éléments nécessaires à la continuité d'un service</td>
+						</tr>
+						<tr>
+							<td>A1.4.1</td>
+							<td>Définition des niveaux d'habilitation associés à un service</td>
+						</tr>
+						<tr>
+							<td>A2.1.1 </td>
+							<td>Accompagnement des utilisateurs dans la prise en main d'un service </td>
+						</tr>
+						<tr>
+							<td>4.1.1</td>
+							<td>Proposition d'une solution applicative</td>
+						</tr>
+						<tr>
+							<td>4.1.2</td>
+							<td>Conception ou adaptation de l'interface utilisateur d'une solution applicative</td>
+						</tr>
+						<tr>
+							<td>A4.1.4 </td>
+							<td> Définition des caractéristiques d'une solution applicative </td>
+						</tr>
+						<tr>
+							<td>A4.1.6</td>
+							<td>Gestion d'environnements de développement et de test</td>
+						</tr>
+							<tr>
+							<td>A4.1.9</td>
+							<td>Rédaction d'une documentation technique</td>
+						</tr>
+						<tr>
+							<td>A4.1.10</td>
+							<td>Rédaction d'une documentation d'utilisation</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+			
+			
+	
+		
+			
+			
+		
+	</body>
+</html>
